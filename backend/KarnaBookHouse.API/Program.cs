@@ -1,5 +1,8 @@
 using KarnaBookHouse.API.Data;
 using Microsoft.EntityFrameworkCore;
+using KarnaBookHouse.API.Repositories;
+using KarnaBookHouse.API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
 options =>options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
