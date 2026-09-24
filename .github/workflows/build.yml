@@ -1,0 +1,30 @@
+name: Build API
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore Packages
+        run: dotnet restore backend/KarnaBookHouse.API/KarnaBookHouse.API.csproj
+
+      - name: Build Project
+        run: dotnet build backend/KarnaBookHouse.API/KarnaBookHouse.API.csproj --configuration Release --no-restore
+
+      - name: Publish Project
+        run: dotnet publish backend/KarnaBookHouse.API/KarnaBookHouse.API.csproj -c Release -o publish
