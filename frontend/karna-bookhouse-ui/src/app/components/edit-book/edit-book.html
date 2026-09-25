@@ -1,40 +1,48 @@
-<h1>Edit Book</h1>
+<div class="container">
 
-<p>Book Id : {{id}}</p>
+  <h1>Edit Book</h1>
 
-<div>
+  <p>Book Id: {{ id }}</p>
+
+  <div>
 
     <label>Title</label>
 
     <input
-        type="text"
-        [(ngModel)]="title">
+      type="text"
+      [(ngModel)]="title">
 
-</div>
+  </div>
 
-<div>
+  <div>
 
     <label>Author</label>
 
     <input
-        type="text"
-        [(ngModel)]="author">
+      type="text"
+      [(ngModel)]="author">
 
-</div>
+  </div>
 
-<div>
+  <div>
 
     <label>Category</label>
 
     <input
-        type="text"
-        [(ngModel)]="category">
+      type="text"
+      [(ngModel)]="category">
 
-</div>
+  </div>
 
-<button
+  <br>
+
+  <button
     (click)="updateBook()">
 
     Update Book
 
-</button>
+  </button>
+
+  <p>{{ successMessage }}</p>
+
+</div>

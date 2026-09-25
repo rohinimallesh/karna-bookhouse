@@ -18,16 +18,23 @@ export class SearchBook {
 
   constructor(private bookService: BookService) {}
 
-  searchBooks() {
+  searchBooks(): void {
 
-    this.bookService
-      .searchBook(this.searchText)
-      .subscribe(data => {
+    this.bookService.searchBook(this.searchText)
+      .subscribe({
+        next: (data) => {
 
-        this.books = data;
+          console.log(data);
 
+          this.books = data;
+
+        },
+        error: (error) => {
+
+          console.error(error);
+
+        }
       });
 
   }
-
 }

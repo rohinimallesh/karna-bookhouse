@@ -1,29 +1,12 @@
 <h1>Karna Book House</h1>
 
-<h2>Total Books: {{ books.length }}</h2>
+<p>Total Books: {{ books.length }}</p>
 
-<table border="1">
-
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-    <tr *ngFor="let book of books">
-
-      <td>{{ book.id }}</td>
-      <td>{{ book.title }}</td>
-      <td>{{ book.author }}</td>
-      <td>{{ book.category }}</td>
-
-    </tr>
-
-  </tbody>
-
-</table>
+<ul>
+  <li *ngFor="let book of books">
+    {{ book.id }} -
+    {{ book.title }} -
+    {{ book.author }} -
+    {{ book.category }}
+  </li>
+</ul>

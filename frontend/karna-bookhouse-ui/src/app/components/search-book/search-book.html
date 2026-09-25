@@ -1,39 +1,30 @@
 <h1>Search Books</h1>
 
 <input
-    type="text"
-    [(ngModel)]="searchText"
-    placeholder="Enter book title">
+  type="text"
+  [(ngModel)]="searchText"
+  placeholder="Enter book title">
 
-<button
-    (click)="searchBooks()">
+<button (click)="searchBooks()">
 
-    Search
+  Search
 
 </button>
 
-<hr>
+<br><br>
 
-<table>
+<p>Total Results: {{ books.length }}</p>
 
-    <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Category</th>
-    </tr>
+<ul>
 
-    @for(book of books; track book.id){
+  <li *ngFor="let book of books">
 
-    <tr>
+    {{ book.title }}
+    -
+    {{ book.author }}
+    -
+    {{ book.category }}
 
-        <td>{{book.title}}</td>
+  </li>
 
-        <td>{{book.author}}</td>
-
-        <td>{{book.category}}</td>
-
-    </tr>
-
-    }
-
-</table>
+</ul>

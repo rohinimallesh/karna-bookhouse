@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../../services/book.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-edit-book',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './edit-book.html',
   styleUrl: './edit-book.css'
 })
@@ -15,10 +16,10 @@ export class EditBook implements OnInit {
   id = 0;
 
   title = '';
-
   author = '';
-
   category = '';
+
+  successMessage = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -27,13 +28,11 @@ export class EditBook implements OnInit {
 
   ngOnInit(): void {
 
-    this.id =
-      Number(
-        this.route.snapshot.paramMap.get('id')
-      );
+    this.id = Number(
+      this.route.snapshot.paramMap.get('id')
+    );
 
     this.loadBook();
-
   }
 
   loadBook() {
@@ -55,9 +54,7 @@ export class EditBook implements OnInit {
     const book = {
 
       title: this.title,
-
       author: this.author,
-
       category: this.category
 
     };
@@ -66,10 +63,10 @@ export class EditBook implements OnInit {
       .updateBook(this.id, book)
       .subscribe(() => {
 
-        alert('Book Updated Successfully');
+        this.successMessage =
+          'Book Updated Successfully';
 
       });
 
   }
-
 }
