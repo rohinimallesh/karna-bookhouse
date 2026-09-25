@@ -1,1 +1,39 @@
-<p>search-book works!</p>
+<h1>Search Books</h1>
+
+<input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Enter book title">
+
+<button
+    (click)="searchBooks()">
+
+    Search
+
+</button>
+
+<hr>
+
+<table>
+
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+    </tr>
+
+    @for(book of books; track book.id){
+
+    <tr>
+
+        <td>{{book.title}}</td>
+
+        <td>{{book.author}}</td>
+
+        <td>{{book.category}}</td>
+
+    </tr>
+
+    }
+
+</table>

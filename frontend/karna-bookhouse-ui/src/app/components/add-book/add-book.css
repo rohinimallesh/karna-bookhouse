@@ -1,0 +1,31 @@
+.container {
+    width: 400px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}

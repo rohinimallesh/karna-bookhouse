@@ -1,2 +1,47 @@
-<h1>Karna Book House</h1>
-<p>Book List Component Loaded Successfully</p>
+<div class="container">
+
+    <h1>Add New Book</h1>
+
+    @if(successMessage){
+        <p class="success">{{successMessage}}</p>
+    }
+
+    @if(errorMessage){
+        <p class="error">{{errorMessage}}</p>
+    }
+
+    <div>
+
+        <label>Title</label>
+
+        <input
+            type="text"
+            [(ngModel)]="title">
+
+    </div>
+
+    <div>
+
+        <label>Author</label>
+
+        <input
+            type="text"
+            [(ngModel)]="author">
+
+    </div>
+
+    <div>
+
+        <label>Category</label>
+
+        <input
+            type="text"
+            [(ngModel)]="category">
+
+    </div>
+
+    <button (click)="saveBook()">
+        Save Book
+    </button>
+
+</div>

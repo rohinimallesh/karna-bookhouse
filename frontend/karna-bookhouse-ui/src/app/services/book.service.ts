@@ -8,13 +8,14 @@ import { Book } from '../models/book';
 })
 export class BookService {
 
-  private apiUrl = 'https://localhost:5001/api/books';
+  private apiUrl = 'http://localhost:5143/api/books';
 
   constructor(private http: HttpClient) { }
 
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.apiUrl);
   }
+
 
   getBookById(id: number): Observable<Book> {
     return this.http.get<Book>(`${this.apiUrl}/${id}`);
@@ -36,4 +37,6 @@ export class BookService {
     return this.http.get<Book[]>(
       `${this.apiUrl}/search?title=${title}`);
   }
+
+  
 }

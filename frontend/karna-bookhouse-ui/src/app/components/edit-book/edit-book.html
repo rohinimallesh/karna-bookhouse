@@ -1,1 +1,40 @@
-<p>edit-book works!</p>
+<h1>Edit Book</h1>
+
+<p>Book Id : {{id}}</p>
+
+<div>
+
+    <label>Title</label>
+
+    <input
+        type="text"
+        [(ngModel)]="title">
+
+</div>
+
+<div>
+
+    <label>Author</label>
+
+    <input
+        type="text"
+        [(ngModel)]="author">
+
+</div>
+
+<div>
+
+    <label>Category</label>
+
+    <input
+        type="text"
+        [(ngModel)]="category">
+
+</div>
+
+<button
+    (click)="updateBook()">
+
+    Update Book
+
+</button>

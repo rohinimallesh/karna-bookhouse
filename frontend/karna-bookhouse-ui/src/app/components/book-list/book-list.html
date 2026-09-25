@@ -1,2 +1,29 @@
 <h1>Karna Book House</h1>
-<p>Book List Component Loaded Successfully</p>
+
+<h2>Total Books: {{ books.length }}</h2>
+
+<table border="1">
+
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let book of books">
+
+      <td>{{ book.id }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.category }}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
